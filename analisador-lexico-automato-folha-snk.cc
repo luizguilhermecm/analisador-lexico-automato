@@ -43,18 +43,12 @@ void Leitura (int matriz [linha][coluna], char *argumento) {
   
   while (i <= caracter.size()) {
     indice = PosicaoIndice(caracter[i]);
-// essa linha so necessario se o automato tiver que reconhecer
-// caracteres que nao fazem parte de seu alfabeto
-// if (indice == -1 && current_state != 1) current_state = 0;
     if (indice != -1) current_state = matriz [current_state][indice];
 
     if (IsFinal(current_state)) final_state = current_state;
 
     if (current_state != 0) {
       cout << caracter[i];
-// if (caracter [i] != '\n') cout << caracter [i];
-// essa linhas so  necessario caso o automato tiver que reconhecer
-// quebras de linha e imprimir isso if (caracter [i] == '\n') cout << "\\n";
       i++; 
     } 
     if (current_state == 0) {
