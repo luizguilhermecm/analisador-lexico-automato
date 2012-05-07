@@ -7,12 +7,12 @@ using namespace std;
 #define linha 9 
 #define coluna 38 
 
-void Leitura (int matriz [linha][coluna]);
+void Leitura (int matriz [linha][coluna], char * argumento);
 int PosicaoIndice (char ch);
 bool IsFinal (int is_final_);
 void Token (int final_state_);
 
-int main (){
+int main (int argc, char *argv[]){
   int matrix[linha][coluna] = {
 //	{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,0,1,2,3,4,5,6,7,8,9,+,-}
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},  // estado 0 (morto)
@@ -25,11 +25,11 @@ int main (){
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,0,0},  // estado 7
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,0,0},  // estado 8
   };
-	Leitura (matrix);
+	Leitura (matrix, argv[1]);
 }
 
-void Leitura (int matriz [linha][coluna]) {
-  ifstream fin ("teste.txt");
+void Leitura (int matriz [linha][coluna], char *argumento) {
+  ifstream fin (argumento);
   vector<char> caracter;
   char ch;
   int i;
